@@ -6,12 +6,16 @@ import Home from "./components/Home";
 import StyleLens from "./components/Style-Lens";
 import "./App.css"
 
-function App () {
 
-  return (
+  function App() {
+    return (
 <div className="App">
   <Header />
-  <Home />
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/stylelens" element={<StyleLens />} />
+  </Routes>
+
   <Footer />
 </div>
   );

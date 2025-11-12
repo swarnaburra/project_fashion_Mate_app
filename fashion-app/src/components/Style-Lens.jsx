@@ -1,19 +1,15 @@
-import React from React;
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const StyleLens = () => {
-    const {styleId} = useParams ();
-    const style = style.find((s) => s.styleId === parseInt(styleId));
+export default function StyleLens() {
+  return (
+    <div style={{ textAlign: "center", marginTop: "2rem" }}>
+      <h2> StyleLens</h2>
+      <p>Get personalized fashion tips and trends here!</p>
 
+      {/* Link back to Home */}
+      <Link to="/" style={{ display: "inline-block", marginTop: "1rem", padding: "0.5rem 1rem", background: "#f0c", color: "white", borderRadius: 5, textDecoration: "none" }}>
+        ← Back to Home
+      </Link>
+    </div>
+  );
 }
-
-if (!style) {
-    return(
-        <div> 
-            <h2> Please upload the photo in the correct format </h2>
-            <Link to="/"> Back to the StyleLens</Link>
-        </div>
-    );
-}
-
-export default StyleLens;

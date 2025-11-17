@@ -1,37 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import fmlogo from '../assets/fm-logo.png';
+import React, { useState } from "react";
+import "./Header.css";
+import { FaCamera, FaQuestionCircle } from "react-icons/fa";
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
-    <header>
-      <div style={{ 
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        fontSize: '14px',
-        padding: '10px'
-      }}>
-        <span>
-          <img 
-            style={{ paddingLeft: '10px', width: '100px', height: '100px' }} 
-            src={fmlogo} 
-            alt='FashionMate' 
-          />
-        </span>
+    <header className="header">
 
-        <span style={{ marginLeft: 'auto', paddingLeft: '10px' }}>
-          <Link to="/stylelens" style={{ textDecoration: 'none', color: 'black' }}>StyleLens</Link>
-        </span>
-
-        <span style={{ paddingLeft: '10px' }}>
-          <Link to="/fashion-quiz" style={{ textDecoration: 'none', color: 'black' }}>Fashion quiz</Link>
-        </span>
-
-        <span style={{ paddingLeft: '10px' }}>
-          <button style={{ color: 'white', backgroundColor: 'black' }}>Login /Signup</button>
-        </span>
+      {/*Adding logo to the top left of the webpage */}
+      <div className="logo">
+        <img src="/fm-logo.png" alt="FashionMate logo" />
       </div>
+
+      {/* Adding Hamburger menu in the right corner of the webpage */}
+      <div className="hamburger" onClick={toggleMenu}>
+        <div className={`line ${isOpen ? "open" : ""}`}></div>
+        <div className={`line ${isOpen ? "open" : ""}`}></div>
+        <div className={`line ${isOpen ? "open" : ""}`}></div>
+      </div>
+
+      {/* SLIDE-OUT MENU */}
+      <nav className={`nav-links ${isOpen ? "active" : ""}`}>
+        <a href="/stylelens">
+          <FaCamera size={20} /> StyleLens
+        </a>
+        <a href="/fashionquiz">
+          <FaQuestionCircle size={20} /> FashionQuiz
+        </a>
+      </nav>
+
     </header>
   );
 }

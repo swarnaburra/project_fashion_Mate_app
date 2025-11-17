@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import StyleLens from "./components/Style-Lens";
+import FashionQuiz from "./components/Fashion-Quiz";
+import GlamUp from "./components/GlamUp";
 import "./App.css"
 
 
@@ -14,6 +16,8 @@ import "./App.css"
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/stylelens" element={<StyleLens />} />
+    <Route path="/fashionquiz" element={<FashionQuiz />} />
+    <Route path="/glamup" element={<GlamUp />} />
   </Routes>
 
   <Footer />

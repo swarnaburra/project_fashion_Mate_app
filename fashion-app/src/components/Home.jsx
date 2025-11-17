@@ -1,17 +1,24 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./Home.css";
 
-function Home () {
+function Home() {
+  const navigate= useNavigate();
+  return (
+    <div className="home-container">
+      <div className="hero-content">
+        <h1 className="app-name">FashionMate</h1>
+        <p className="tagline">Discover your perfect style.</p>
 
-return (
-    <main>
-<h2> Hey Gorgeous Welcome to the FashionMate!</h2>
-<p> Time to Refresh Outfit & Refresh You! </p>
-
-
-    </main>
-);
-
-
+        <button className="cta-button"
+        onClick={() => navigate("/glamup")}
+        >
+          Get Started
+          
+          </button>
+      </div>
+    </div>
+  );
 }
 
 export default Home;

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import StyleLensUpload from "./StyleLensUpload";
+import BackToHome from "./BackToHome";
 
 export default function StyleLens() {
   return (
@@ -8,19 +9,7 @@ export default function StyleLens() {
       <h2>StyleLens</h2>
       <p>Get personalized fashion tips and trends here!</p> <StyleLensUpload />
 
-        <Link to="/"
-        style={{
-          display: "inline-block",
-          marginTop: "1rem",
-          padding: "0.5rem 1rem",
-          background: "#8e131bff",
-          color: "white",
-          borderRadius: 5,
-          textDecoration: "none",
-        }}
-      >
-        ← Back to Home
-      </Link>
+        <BackToHome></BackToHome>
     </div>
     
   );

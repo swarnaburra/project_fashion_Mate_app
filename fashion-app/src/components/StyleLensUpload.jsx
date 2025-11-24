@@ -1,13 +1,15 @@
 import { useState, useEffect, useCallback } from "react";
 import { GoogleGenAI } from "@google/genai";
+import RecommendedMe from "./RecommendMe";
 
 export default function ImageViewer() {
   const [image, setImage] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(""); // Yay/Nay + recommendations
+  const [isnay, setNay] = useState(false);
 
-  const ai = new GoogleGenAI({ apiKey: "AIzaSyD4IOKxpq7o9lUVyLoCZwd66JS5wpE3t_k" });
+  const ai = new GoogleGenAI({ apiKey: "AIzaSyCYU4w4ERZtEsUM5mwPcZdBqsxVV27ek3Q" });
 
   useEffect(() => {
     return () => {
@@ -51,8 +53,16 @@ export default function ImageViewer() {
       const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
         contents: contents,
+        
       });
 
+      if(response.candidates[0].content.parts[0].text.includes("NAY")) {
+      setNAY (true)
+
+        
+      }
+
+      
       setResult(response.candidates[0].content.parts[0].text)
     } catch (err) {
       setError("AI analysis failed. Try again.");
@@ -181,7 +191,11 @@ export default function ImageViewer() {
             >
               <h3>StyleLens Result:</h3>
               <p>{result}</p>
+              {isnay && (
+              <div> <RecommendedMe></RecommendedMe></div>
+            )}
             </div>
+            
           )}
         </div>
       ) : (

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./FashionQuiz.css"; 
+import BackToHome from "./BackToHome";
 
 export default function FashionQuiz() {
   const questions = [
@@ -119,20 +120,7 @@ export default function FashionQuiz() {
         </div>
       )}
 
-      <Link
-        to="/"
-        style={{
-          display: "inline-block",
-          marginTop: "2rem",
-          padding: "0.5rem 1rem",
-          background: "#8e131bff",
-          color: "white",
-          borderRadius: 5,
-          textDecoration: "none",
-        }}
-      >
-        ← Back to Home
-      </Link>
+      <BackToHome></BackToHome>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./GlamUp.css";
+import BackToHome from "./BackToHome";
 
 export default function GlamUp() {
   const images = [
@@ -21,10 +22,9 @@ export default function GlamUp() {
         ))}
       </div>
 
+      <BackToHome></BackToHome>
       
-      <Link to="/" className="back-button">
-        ← Back to Home
-      </Link>
+
     </div>
   );
 }

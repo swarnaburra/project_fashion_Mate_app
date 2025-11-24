@@ -3,6 +3,7 @@ import StyleLensUpload from "./StyleLensUpload";
 
 export default function StyleLens() {
   return (
+    
     <div style={{ textAlign: "center", marginTop: "2rem" }}>
       <h2>StyleLens</h2>
       <p>Get personalized fashion tips and trends here!</p> <StyleLensUpload />
@@ -12,7 +13,7 @@ export default function StyleLens() {
           display: "inline-block",
           marginTop: "1rem",
           padding: "0.5rem 1rem",
-          background: "#f0c",
+          background: "#8e131bff",
           color: "white",
           borderRadius: 5,
           textDecoration: "none",
@@ -21,5 +22,6 @@ export default function StyleLens() {
         ← Back to Home
       </Link>
     </div>
+    
   );
 }

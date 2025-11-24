@@ -52,16 +52,14 @@
   font-size: 1rem;
   font-weight: bold;
   border: none;
-  background-color: #ff4081;
+  background-color: #8e131bff;
   color: white;
   cursor: pointer;
   border-radius: 5px;
   transition: background 0.3s;
 }
 
-.cta-button:hover {
-  background-color: #e73370;
-}
+
 
 /* Adding breakpoint for a Tablet user */
 

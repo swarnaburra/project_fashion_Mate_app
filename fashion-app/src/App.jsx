@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import StyleLens from "./components/StyleLens";
-import FashionQuiz from "./components/Fashion-Quiz";
+import FashionQuiz from "./components/FashionQuiz";
 import GlamUp from "./components/GlamUp";
 import "./App.css"
 

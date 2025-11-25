@@ -22,9 +22,9 @@ export default function GlamUp() {
         ))}
       </div>
 
-      <BackToHome></BackToHome>
-      
+      <BackToHome></BackToHome> 
 
     </div>
+    
   );
 }

@@ -1,10 +1,13 @@
 import React from "react";
-import FashionQuiz from "./FashionQuiz";
+import { Link } from "react-router-dom";
 
-export default function RecommendedMe () {
 
-    return(
+export default function RecommendedMe() {
+
+  return (
+    <Link to="/FashionQuiz">
       <button type="button"> Recommend Me! </button>
-        
-    )
+    </Link>
+
+  )
 }

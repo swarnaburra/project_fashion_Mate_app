@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
-import { FaCamera, FaQuestionCircle } from "react-icons/fa";
+import { FaCamera, FaQuestionCircle, FaInfoCircle } from "react-icons/fa";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +29,9 @@ function Header() {
         </a>
         <a href="/fashionquiz">
           <FaQuestionCircle size={20} /> FashionQuiz
+        </a>
+        <a href="/about">
+        <FaInfoCircle size={20} /> About
         </a>
       </nav>
 

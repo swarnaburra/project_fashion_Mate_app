@@ -6,7 +6,9 @@ import Home from "./components/Home";
 import StyleLens from "./components/StyleLens";
 import FashionQuiz from "./components/FashionQuiz";
 import GlamUp from "./components/GlamUp";
+import About from "./components/About";
 import "./App.css"
+
 
 
   function App() {
@@ -18,6 +20,7 @@ import "./App.css"
     <Route path="/stylelens" element={<StyleLens />} />
     <Route path="/fashionquiz" element={<FashionQuiz />} />
     <Route path="/glamup" element={<GlamUp />} />
+    <Route path="/about" element={<About />} />
   </Routes>
 
   <Footer />

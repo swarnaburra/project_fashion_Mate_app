@@ -12,6 +12,7 @@ export default function BackToHome () {
           color: "white",
           borderRadius: 5,
           textDecoration: "none",
+          zIndex: 9999
         }}
       >
         ← Back to Home

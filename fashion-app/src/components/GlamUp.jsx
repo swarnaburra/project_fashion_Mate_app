@@ -12,7 +12,7 @@ export default function GlamUp() {
   return (
     <div className="glamup-container">
       <h2 className="title">GlamUp</h2>
-      <p className="tagline">Get Inspired with Seasons!</p>
+      <p className="tagline">Get Inspired with Seasons..!</p>
 
       <div className="tiles">
         {images.map((img, index) => (

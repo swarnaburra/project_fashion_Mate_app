@@ -4,9 +4,9 @@ import BackToHome from "./BackToHome";
 
 export default function GlamUp() {
   const images = [
-    "/fashion1.jpg",
-    "/fashion2.jpg",
-    "/fashion3.jpg"
+    { src: "/fashion1.jpg", description: "Woman wearing a stylish fall outfit with scarf" },
+    { src: "/fashion2.jpg", description: "Woman in chic winter fashion with statement necklace" },
+    { src: "/fashion3.jpg", description: "Casual outfit for autumn with a hat accessory" }
   ];
 
   return (
@@ -17,14 +17,16 @@ export default function GlamUp() {
       <div className="tiles">
         {images.map((img, index) => (
           <div className="tile" key={index}>
-            <img src={img} alt={`fashion-${index}`} className="tile-image" />
+            <img 
+              src={img.src} 
+              alt={img.description} 
+              className="tile-image" 
+            />
           </div>
         ))}
       </div>
 
-      <BackToHome></BackToHome> 
-
+      <BackToHome />
     </div>
-    
   );
 }

@@ -6,7 +6,7 @@ export default function About() {
   const team = [
     { id: 1, name: "Swarna Burra", role: "Founder & Designer" },
     { id: 2, name: "Loralai Gilmore", role: "Frontend Developer" },
-    { id: 3, name: "Jess Mariano", role: "Backend Developer" },
+    { id: 3, name: "Walter White", role: "Backend Developer" },
   ];
 
   const features = [

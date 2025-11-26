@@ -6,7 +6,7 @@ export default function RecommendedMe() {
 
   return (
     <Link to="/FashionQuiz">
-      <button type="button"> Recommend Me! </button>
+      <button style={{background: 'black', color: 'white'}} type="button"> Recommend Me! </button>
     </Link>
 
   )

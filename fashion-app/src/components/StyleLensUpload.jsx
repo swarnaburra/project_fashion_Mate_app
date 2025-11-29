@@ -8,6 +8,8 @@ export default function ImageViewer() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(""); // Yay/Nay + recommendations
   const [isnay, setNay] = useState(false);
+  const [recommendedImages, setRecommendedImages] = useState(null);
+
 
   const geminiApiKey = localStorage.getItem("geminiApiKey");
   const ai = new GoogleGenAI({ apiKey: geminiApiKey });
@@ -37,8 +39,8 @@ export default function ImageViewer() {
                   You are a fashion expert.
                   Step 1: Determine if the image contains an outfit. Make sure it's an outfit and not an object like building, car etc
                   Step 2: If yes, say either "YAY" or "NAY" about the outfit quality.
-                  Step 3: If NAY, give 2–3 specific improvement suggestions.
-                  Keep response short, friendly, and easy to read.
+                  Step 3: If NAY, give 2–3 specific improvement suggestions. Give me 3 image links which are royalty free from unsplash pertaining to the suggestions.
+                  Keep response short, friendly, and easy to read. Send the respone in json with two keys text and recommendedImages
               `;
 
       const contents = [
@@ -57,19 +59,21 @@ export default function ImageViewer() {
 
       });
 
-      if (response.candidates[0].content.parts[0].text.includes("NAY")) {
+      let text = response.candidates[0].content.parts[0].text;
+      let value = text
+        .replace(/```json/g, "")
+        .replace(/```/g, "")
+        .trim();
+      value = JSON.parse(value);
+      if (value.text.includes("NAY")) {
         setNay(true);
+        setRecommendedImages(value.recommendedImages);
+      }
+      else {
+        setNay(false);
       }
 
-      else { 
-        setNay(false); 
-      }
-
-
-
-
-
-      setResult(response.candidates[0].content.parts[0].text)
+      setResult(value.text)
     } catch (err) {
       setError("AI analysis failed. Try again.");
       console.error(err);
@@ -200,7 +204,7 @@ export default function ImageViewer() {
 
               {isnay && (
 
-                <div> <RecommendedMe></RecommendedMe></div>
+                <div> <RecommendedMe ri={recommendedImages}></RecommendedMe></div>
               )}
             </div>
 

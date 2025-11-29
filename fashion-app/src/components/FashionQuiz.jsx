@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./FashionQuiz.css"; 
 import BackToHome from "./BackToHome";
+import FashionQuizForm from "./FashionQuizForm";
 
 
 export default function FashionQuiz() {

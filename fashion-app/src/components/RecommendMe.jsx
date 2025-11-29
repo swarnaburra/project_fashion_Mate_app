@@ -1,13 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import "./RecommendMe.css";
 
-
-export default function RecommendedMe() {
+export default function RecommendedMe({ recommendations }) {
+  if (
+    !recommendations ||
+    !recommendations.recommendedImages ||
+    recommendations.recommendedImages.length === 0
+  ) {
+    return null;
+  }
 
   return (
-    <Link to="/FashionQuiz">
-      <button style={{background: 'black', color: 'white'}} type="button"> Recommend Me! </button>
-    </Link>
+    <div className="recommend-container">
+      <h3 className="recommend-title">Recommended Looks</h3>
 
-  )
+      <div className="recommend-tiles">
+        {recommendations.recommendedImages.map((img, index) => (
+          <div className="recommend-tile" key={index}>
+            <img src={img} alt={`recommended-${index}`} className="recommend-img" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }

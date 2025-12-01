@@ -1,3 +1,40 @@
+/* Base pulse animation */
+.cta-button {
+  animation: pulse 1.2s infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Pulse keyframes */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+/* Hover effect */
+.cta-button:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.591); /* pink glow */
+}
+/* Base pulse animation */
+.pulse-btn {
+  animation: pulse 1.2s infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+/* Hover effect */
+.pulse-btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.5); /* a soft pink glow */
+}
+
+
 /* Container with background image */
 .home-container {
   height: 100vh;

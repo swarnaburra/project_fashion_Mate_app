@@ -1,58 +1,82 @@
-export default function FashionQuizForm({ answers, onChange }) {
-    return (
-        <><div>
-            <h3>1. Choose your preferred Style</h3>
-            <div className="quiz-grid">
-                <div
-                    className={`quiz-tile ${answers.style === "Casual" ? "selected" : ""}`}
-                    onClick={() => onChange("style", "Casual")}>
-                    <img src="/casual.jpg" alt="Casual Style" />
-                    <p> Casual </p>
-                </div>
-                <div
-                    className={`quiz-tile ${answers.style === "Business" ? "selected" : ""}`}
-                    onClick={() => onChange("style", "Business")}>
-                    <img src="business.jpg" alt="Business Style" />
-                    <p> Business </p>
-                </div>
+import { useState } from "react";
+import FashionQuiz from "./FashionQuiz";
 
-                <div
-                    className={`quiz-tile ${answers.style === "Trendy" ? "selected" : ""}`}
-                    onClick={() => onChange("style", "Trendy")}>
-                    <img src="trendy.jpg" alt="Trendy Style" />
-                    <p> Trendy </p>
-                </div>
+export default function FashionQuizForm() {
+  const [selectedStyle, setSelectedStyle] = useState("");
+  const [selectedColor, setselectedColor] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [warning, setWarning] = useState("");
+  
+  // Handle submit button click
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!selectedStyle || !selectedColor) {
+      setWarning("Please select both style and color before submitting.");
+      return;
+    }
+    setSubmitted(true);
+  };
+  return (
+    <div>
 
-                <div
-                    className={`quiz-title ${answers.style === "Chic" ? "selected" : ""}`}
-                    onClick={() => onChange("style", "Chic")}>
-                    <img src="chic.jpg" alt="Chic Style" />
-                    <p> Chic Style </p>
-                </div>
-            </div>
-        </div><h3>2. Choose your favorite fashion color </h3><div className="quiz-grid">
-                <div
-                    className={`quiz-tile ${answers.color === "Black" ? "selected" : ""}`}
-                    onClick={() => onChange("color", "Black")}>
-                    <img src="black.jpg" alt="Black Color" />
-                    <p> Black </p>
-                </div>
+      <form onSubmit={handleSubmit}>
 
-                <div
-                    class name={`quiz-tile ${answers.color === "Beige" ? "selected" : ""}`}
-                    onClick={() => onChange("color", "Beige")}>
-                    <img src="beige.jpg" alt="Beige Color" />
-                    <p> Beige </p>
-                </div>
+      <h3>1. Choose your preferred Style</h3>
 
-                <div 
-                className={`quiz-tile ${answers.color === "Bright Colors" ? "selected" : ""}`}
-                onClick={() => onChange("color", "bright")}>
-                    <img src="bright.jpg" alt="Bright Color" />
-                    <p> Bright Colors</p>
-                </div>
+      <div className="quiz-grid">
+        {["Casual", "Business", "Trendy", "Chic"].map((style) => (
+          <div
+            key={style}
+            className={`quiz-tile ${selectedStyle === style ? "selected" : ""}`}
+            onClick={() => setSelectedStyle(style)}
 
-            </div></>
-        
-    );
+          >
+            <p>{style}</p>
+          </div>
+        ))}
+      </div>
+
+      <h3>2. Choose your favorite color</h3>
+      <div className="quiz-grid">
+        {["Black", "Beige", "Bright Colors"].map((color) => (
+          <div
+            key={color}
+            className={`quiz-tile ${selectedColor === color ? "selected" : ""}`}
+            onClick={() => setselectedColor(color)}
+          >
+            <p>{color}</p>
+          </div>
+        ))}
+
+      </div>
+      
+          <button
+            type="submit"
+            style={{
+              marginTop: "20px",
+              padding: "10px 20px",
+              fontSize: "16px",
+              borderRadius: "8px",
+              cursor: "pointer",
+              backgroundColor: "#8e131bff",
+              color: "white",
+              border: "none"
+            }}
+          >
+            Submit
+          </button>
+
+          {warning && (
+            <p style={{ color: "crimson", fontWeight: "bold", marginTop: "10px" }}>
+              {warning}
+            </p>
+          )}
+      </form>
+      
+      {submitted && (
+           <FashionQuiz style={selectedStyle} color={selectedColor}/>
+          )}
+
+    </div>
+  );
 }

@@ -5,7 +5,9 @@ import { FaCamera, FaQuestionCircle, FaInfoCircle } from "react-icons/fa";
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  function toggleMenu() {
+    return setIsOpen(!isOpen);
+  }
 
   return (
     <header className="header">
